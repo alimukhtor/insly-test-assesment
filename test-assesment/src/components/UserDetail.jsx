@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Form, Button, Container, Col, Row } from "react-bootstrap";
+import UsersList from "./UsersList";
 const UserDetail = () => {
   const [registration, setRegistration] = useState({
     first_name: "",
@@ -9,6 +10,7 @@ const UserDetail = () => {
     address: "",
   });
   const [country, setCountry] = useState([]);
+  const [submit, setSubmit] = useState(false)
 
   const handleInput = (fieldName, value) => {
     setRegistration({
@@ -17,6 +19,11 @@ const UserDetail = () => {
     });
   };
 
+  const handleSubmit =(e)=> {
+    e.preventDefault()
+    setSubmit(true)
+    console.log(submit);
+  }
   const fetchCountry = async () => {
     try {
       const response = await fetch("https://restcountries.com/v3.1/all");
@@ -39,7 +46,7 @@ const UserDetail = () => {
       <Row className="form">
         <Col xs={12} md={6}>
           <h1>User Submit Form</h1>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Label>First Name</Form.Label>
               <Form.Control
