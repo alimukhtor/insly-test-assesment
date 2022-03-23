@@ -1,7 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Form, Button, Container, Col, Row } from "react-bootstrap";
 import UsersList from "./UsersList";
+import { GlobalContext } from "../context/store/GlobalState";
 const SubmitForm = () => {
+  const {addUser}  = useContext(GlobalContext)
+
+  const [country, setCountry] = useState([]);
   const [registration, setRegistration] = useState({
     first_name: "",
     last_name: "",
@@ -9,8 +13,6 @@ const SubmitForm = () => {
     country: "",
     address: "",
   });
-  const [country, setCountry] = useState([]);
-  const [submit, setSubmit] = useState(false)
 
   const handleInput = (fieldName, value) => {
     setRegistration({
@@ -19,10 +21,21 @@ const SubmitForm = () => {
     });
   };
 
-  const handleSubmit =(e)=> {
-    e.preventDefault()
-    setSubmit(true)
-    console.log(submit);
+  const handleSubmit =()=> {
+    // setRegistration({
+    //   first_name: "",
+    //   last_name: "",
+    //   email: "",
+    //   country: "",
+    //   address: "",
+    // })
+    const newUser ={
+      id:2,
+      name:"ali"
+    }
+    addUser(newUser)
+
+  
   }
   const fetchCountry = async () => {
     try {

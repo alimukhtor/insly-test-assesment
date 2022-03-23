@@ -1,6 +1,11 @@
 import { Form, Button, Container, Col, Row } from "react-bootstrap";
+import { GlobalContext } from "../context/store/GlobalState";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 const UsersList =()=> {
+  const {users, removeUser}  = useContext(GlobalContext)
+  console.log("Users", users);
+
     return (
         <Container>
         <Row className="form">
@@ -53,6 +58,7 @@ const UsersList =()=> {
                 type="submit"
                 className="mt-4"
                 style={{ width: "100%" }}
+                onClick={()=> removeUser()}
               >
                 Delete
               </Button>
