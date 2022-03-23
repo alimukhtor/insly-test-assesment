@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Form, Button, Container, Col, Row } from "react-bootstrap";
 import UsersList from "./UsersList";
-const UserDetail = () => {
+const SubmitForm = () => {
   const [registration, setRegistration] = useState({
     first_name: "",
     last_name: "",
@@ -109,4 +109,4 @@ const UserDetail = () => {
     </Container>
   );
 };
-export default UserDetail;
+export default SubmitForm;
