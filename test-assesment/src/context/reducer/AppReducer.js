@@ -6,9 +6,9 @@ const AppReducer =(state, action)=> {
             return {
                 users: state.users.filter(user => user.id !== action.payload)
             }
-        case "ADD_USER":
+        case ACTION.ADD_USER:
             return {
-                users:[action.payload, ...state.users]
+                users:[...state.users, action.payload]
             }
         default:
             return state

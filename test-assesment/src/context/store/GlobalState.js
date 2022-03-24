@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import { addUser, removeUser } from "../actions";
+import { ACTION, addUser, removeUser } from "../actions";
 import AppReducer from "../reducer/AppReducer";
 
 const initialtState = {
@@ -15,7 +15,7 @@ export const GlobalProvider = ({ children }) => {
   
 const addUser = (user) => {
   dispatch({
-    type: "ADD_USER",
+    type: ACTION.ADD_USER,
     payload: user,
   });
 };
