@@ -6,6 +6,7 @@ import SubmitForm from './components/SubmitForm';
 import {GlobalProvider} from './context/store/GlobalState'
 import UsersList from './components/UsersList';
 import MyNavbar from './components/MyNavbar';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/:id" element={<UserDetailUpdate />} />
         <Route path="/form" element={<SubmitForm />} />
         <Route path="/userList" element={<UsersList />} />

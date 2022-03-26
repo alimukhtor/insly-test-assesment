@@ -10,6 +10,20 @@ const AppReducer =(state, action)=> {
             return {
                 users:[...state.users, action.payload]
             }
+
+        case 'INCREAMENT':
+            return {
+                counter: state.counter+1
+            }
+            
+        case 'DECREMENT':
+            return {
+                counter: state.counter-1
+            }
+        case "ADD_FAV":
+            return {
+                fav:[...state.fav, action.payload]
+            }    
         default:
             return state
     }
