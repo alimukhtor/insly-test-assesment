@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home name="ali"/>} />
         <Route path="/:id" element={<UserDetailUpdate />} />
         <Route path="/form" element={<SubmitForm />} />
         <Route path="/userList" element={<UsersList />} />

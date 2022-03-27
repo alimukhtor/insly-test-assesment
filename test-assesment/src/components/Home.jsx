@@ -1,21 +1,22 @@
-import { useContext, useState } from "react"
+// import { useContext } from "react"
 import { Button } from "react-bootstrap"
-import { GlobalContext } from "../context/store/GlobalState";
+// import { GlobalContext } from "../context/store/GlobalState";
+import HocParentComp from "./HocParentComp";
+import MouseOverFunc from "./MouseOverFunc";
 
-const Home =()=> {
-    // const [counter, setCounter] = useState(0)
-    const [togleBtn, setToggleBtn] = useState(false)
+const Home =({name, increment, counter})=> {
+    
+    // const [togleBtn, setToggleBtn] = useState(false)
 
-    const { increaseCounter, counter, decreaseCounter } = useContext(GlobalContext);
+    // const { increaseCounter, decreaseCounter } = useContext(GlobalContext);
     
 
-
+   
     return (
-        <div>
-            <Button type="button" onClick={()=> {setToggleBtn({toggleBtn:!togleBtn})}} style={{backgroundColor: togleBtn ? "red":"none"}}>+</Button>
-            <p>{counter}</p>
-            {/* <Button type="button" variant="danger" onClick={()=> {decreaseCounter()}}>-</Button> */}
+        <div className="p-5">
+            <Button variant="primary" type="button" onClick={increment}>{name} Button is {counter} times clicked</Button>
+            <MouseOverFunc/>
         </div>
     )
 }
-export default Home
+export default HocParentComp(Home, 5)
